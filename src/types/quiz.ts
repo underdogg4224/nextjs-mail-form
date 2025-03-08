@@ -62,6 +62,54 @@ export type MindsetType =
   | 'Emerging Creator'
   | 'Established Creator';
 
+// New types for financial trauma assessment
+export type ChildhoodMoneyMessage =
+  | 'Money is scarce'
+  | 'Money is hard to earn'
+  | 'Money causes conflict'
+  | 'Rich people are bad or corrupt'
+  | 'Money is the root of all evil'
+  | 'We don\'t talk about money'
+  | 'Money brings freedom and opportunity';
+
+export type FinancialFear =
+  | 'Fear of not having enough'
+  | 'Fear of losing what I have'
+  | 'Fear of being judged for financial decisions'
+  | 'Fear of having too much money'
+  | 'Fear of becoming greedy or materialistic'
+  | 'Fear of not having enough for healthcare'
+  | 'Fear of making financial mistakes';
+
+export type ChildhoodExperience =
+  | 'Grew up with financial stability'
+  | 'Experienced financial insecurity'
+  | 'Witnessed financial conflicts'
+  | 'Medical financial crisis'
+  | 'Bankruptcy or foreclosure'
+  | 'Negative experiences with wealthy people'
+  | 'Positive experiences with wealth creation';
+
+export type EmotionalResponse =
+  | 'Anxiety or panic'
+  | 'Avoidance or procrastination'
+  | 'Guilt or shame'
+  | 'Excitement or enthusiasm'
+  | 'Moral conflict'
+  | 'Confidence or security'
+  | 'Overwhelm or confusion';
+
+export type TraumaType = 'relationship' | 'health' | 'purpose' | 'wealth';
+
+export type PrimaryBlocker = 'knowledge' | 'behavior' | 'mindset' | 'structure' | 'tools' | 'network';
+
+export interface FinancialTraumaResponses {
+  moneyMessages?: ChildhoodMoneyMessage[];
+  financialFears?: FinancialFear[];
+  childhoodExperiences?: ChildhoodExperience[];
+  emotionalResponse?: EmotionalResponse;
+}
+
 export interface QuizFormData {
   ageGroup: AgeGroup;
   incomeSources: IncomeSource[];
@@ -71,10 +119,41 @@ export interface QuizFormData {
   decisionStyle: FinancialDecisionStyle;
   profitResponse: ProfitResponse;
   wealthBuildingView: WealthBuildingView;
+  // New field for financial trauma assessment
+  financialTraumaResponses?: FinancialTraumaResponses;
 }
 
 export interface QuizResult {
   creatorScore: number;
   mindsetType: MindsetType;
   insights: string[];
+  // New fields for enhanced assessment
+  traumaType?: TraumaType | null;
+  primaryBlocker?: PrimaryBlocker | null;
+}
+
+// Business structure types for enhanced assessment
+export type BusinessStructure =
+  | 'sole_proprietorship'
+  | 'llc'
+  | 's_corporation'
+  | 'c_corporation'
+  | 'partnership'
+  | 'multiple_entities'
+  | 'none';
+
+// Year-end approach types
+export type YearEndApproach =
+  | 'maximize_deductions'
+  | 'strategic_planning'
+  | 'no_planning'
+  | 'delegate_to_accountant';
+
+// Enhanced quiz form data for future implementation
+export interface EnhancedQuizFormData extends QuizFormData {
+  businessStructure?: BusinessStructure;
+  yearEndApproach?: YearEndApproach;
+  networkQuality?: number; // 1-10 rating of financial network
+  collaborativeInvestments?: boolean;
+  wealthStructureKnowledge?: number; // 1-10 self-assessment
 }
