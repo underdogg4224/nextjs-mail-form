@@ -1,81 +1,92 @@
-# Next.js contact form with nodemailer, React Hook Form, Zod, Tailwind CSS, reCAPTCHA, Handlebars with TypeScript
+# Creator Path Financial Transformation App
 
-### This is a template for a contact form with Next.js. It uses a custom server to send the email and validate the form. It also uses reCAPTCHA to prevent spam. Handlebars is used to create the email template.
-
-# For `app router` with `server actions` visit [https://github.com/ozcancelik/nextjs-14-mail-form](https://github.com/ozcancelik/nextjs-14-mail-form) repository.
-
-## Demo
-
-https://nextjs-mail-form-ozcancelik.vercel.app/
+A modern web application that helps users transition from a contributor to a creator mindset with their finances. The app features a quiz that assesses the user's current financial patterns and provides personalized insights and recommendations.
 
 ## Features
 
-- [x] [Next.js](https://nextjs.org/)
-- [x] Custom server: You can run with different port. It's useful for same server with other apps.
-- [x] [Nodemailer](https://nodemailer.com/)
-- [x] [React Hook Form](https://react-hook-form.com/)
-- [x] [Zod](https://zod.dev)
-- [x] [reCAPTCHA with react-google-recaptcha](https://github.com/dozoisch/react-google-recaptcha) It uses the invisible reCAPTCHA v2.
-      More info about reCAPTCHA: https://developers.google.com/recaptcha/docs/display
-- [x] Email templating with Handlebars. https://github.com/yads/nodemailer-express-handlebars
-- [x] [TypeScript](https://www.typescriptlang.org/)
-- [x] CSS with [Tailwind CSS](https://tailwindcss.com/)
-- [x] Icons with [React Icons](https://react-icons.github.io/react-icons/)
+- **Financial Mindset Quiz**: An 8-question assessment that evaluates where users fall on the contributor-creator spectrum
+- **Personalized Results**: Detailed analysis of the user's financial patterns with specific insights
+- **PDF Report Generation**: Downloadable personalized roadmap with actionable steps
+- **Modern UI**: Dark-themed, responsive interface built with Next.js, TypeScript, and Tailwind CSS
+- **Smooth Animations**: Engaging user experience with AnimeJS animations
 
-## How to use
+## Tech Stack
 
-### Prerequisites
+- **Frontend**: Next.js, TypeScript, React Hook Form, Zod
+- **Styling**: Tailwind CSS, DaisyUI
+- **Animations**: AnimeJS
+- **PDF Generation**: jsPDF
+- **Form Validation**: Zod, React Hook Form
 
-- Clone the repository and install the dependencies.
-- Create a `.env` file or change the name of `.env.example` to `.env` and fill the variables.
+## Getting Started
 
-```bash
-SERVER_PORT=
-CONTACT_FORM_SEND_EMAIL=
-CONTACT_FORM_RECEIVE_EMAIL=
-CONTACT_FORM_PASS=
-CONTACT_FORM_HOST=
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY=
-RECAPTCHA_SECRET_KEY=
+### Prerequisites
+
+- Node.js 14.x or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/underdogg4224/creator-path-app.git
+   cd creator-path-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Project Structure
+
+```
+creator-path-app/
+├── pages/               # Next.js pages
+├── public/              # Static assets
+├── src/
+│   ├── components/      # React components
+│   ├── types/           # TypeScript type definitions
+│   └── utils/           # Utility functions
+├── styles/              # Global styles
+├── .env.example         # Environment variables example
+├── next.config.js       # Next.js configuration
+├── package.json         # Project dependencies
+├── tailwind.config.js   # Tailwind CSS configuration
+└── tsconfig.json        # TypeScript configuration
 ```
 
-### Install dependencies
+## Key Components
 
-```bash
-npm install
-# or
-yarn
-```
+- **QuizForm**: Multi-step form that collects user information about their financial patterns
+- **QuizResults**: Displays personalized results and insights based on quiz answers
+- **LandingPage**: Engaging introduction to the quiz with information about contributor vs. creator mindsets
+- **Layout**: Common layout with header and footer used across the application
 
-### Run the development server:
+## Customization
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+You can customize the application by:
 
-### Build the app
+1. Modifying the quiz questions and scoring in `src/utils/quizScoring.ts`
+2. Updating the PDF template in `src/utils/pdfGenerator.ts`
+3. Changing the theme colors in `tailwind.config.js`
 
-```bash
-npm run build
-# or
-yarn build
-```
+## License
 
-### Run the production server:
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-```bash
-npm run start
-# or
-yarn start
-```
+## Acknowledgments
 
-# Notes
-
-- You can change the server port in `.env` file. If empty, it will use the default port 3000.
-- If you have problems with Nodemailer, you can try to change the port or other settings. You can find more info in the Nodemailer documentation. More info: https://nodemailer.com/smtp/
-- Gmail requires you to enable "Less secure app access" in your account settings. More info: https://nodemailer.com/usage/using-gmail/
-- For the reCAPTCHA to work, you need to add the domain to the reCAPTCHA admin panel.
-
-Tested with Node.js v20.11.1
+- Based on the wealth seminar concepts of contributor vs. creator financial mindsets
+- Built with modern web technologies for optimal user experience
